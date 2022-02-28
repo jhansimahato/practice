@@ -7,7 +7,7 @@ module.exports = function(app)
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended:true}));
 
-    app.get('api/findmodels/:cname',function(req,res)
+    app.get('/api/findmodels/:cname',function(req,res)
     {
             var s = req.params.cname;
           // i for case insensitive
@@ -28,7 +28,7 @@ module.exports = function(app)
     });
     app.get('/api/findmodel/:id',function(req,res)
     {
-        placemodel.findById({id: req.params.id},function(err,findmodel)
+        placemodel.findById({_id: req.params.id},function(err,findmodel)
         {
             if(err) throw err;
             
